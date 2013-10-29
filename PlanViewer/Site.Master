@@ -63,9 +63,9 @@
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">На главную</a></li>
+                        <li><a runat="server" href="~/About">Информация</a></li>
+                        <li><a runat="server" href="~/Contact">Контакты</a></li>
                         <li><a runat="server" href="ViewPlan.aspx">Просмотреть план</a></li>
                         <li><a runat="server" href="СreatePlan.aspx">Создать план</a></li>
                     </ul>
@@ -83,7 +83,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - TechUP, Москва</p>
             </div>
         </div>
     </footer>

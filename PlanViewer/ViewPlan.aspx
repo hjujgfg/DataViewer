@@ -2,11 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+    
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="PlansDataSource" DataTextField="res" DataValueField="res" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
     </asp:DropDownList>
     <asp:SqlDataSource ID="PlansDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:TeamProjectDBConnectionString1 %>" OnSelecting="PlansDataSource_Selecting" SelectCommand="SELECT + 'Plan #' + CAST([Plan].Id AS nchar) + ' Contractor: ' + Contractor.Name + ' Customer: ' + Customer.Name AS res FROM [Plan] INNER JOIN Contractor ON [Plan].Contractor = Contractor.ID INNER JOIN Customer ON [Plan].Customer = Customer.ID"></asp:SqlDataSource>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Table ID="Table1" runat="server" >
         <asp:TableHeaderRow BorderStyle="Dashed">
             <asp:TableHeaderCell BorderStyle="Double">ID </asp:TableHeaderCell>
@@ -19,8 +20,10 @@
             <asp:TableHeaderCell BorderStyle="Double">Трудозатраты </asp:TableHeaderCell>
             <asp:TableHeaderCell BorderStyle="Double">Материалы </asp:TableHeaderCell>
             <asp:TableHeaderCell BorderStyle="Double">Механизмы </asp:TableHeaderCell>            
+            <asp:TableHeaderCell BorderStyle="Double">Текущий статус </asp:TableHeaderCell>       
         </asp:TableHeaderRow>
         <asp:TableRow BorderStyle="Dashed">
+            <asp:TableCell Width="76"></asp:TableCell>
             <asp:TableCell Width="76"></asp:TableCell>
             <asp:TableCell Width="76"></asp:TableCell>
             <asp:TableCell Width="76"></asp:TableCell>

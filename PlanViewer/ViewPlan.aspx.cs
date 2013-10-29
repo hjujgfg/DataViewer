@@ -67,6 +67,23 @@ namespace PlanViewer
                 Table1.Rows[1].Cells[7].Text = res[0].Labor.ToString();
                 Table1.Rows[1].Cells[8].Text = res[0].Materials.ToString();
                 Table1.Rows[1].Cells[9].Text = res[0].Mechnisms.ToString();
+                switch (res[0].Status)
+                {
+                    case 1:
+                        Table1.Rows[1].Cells[10].Text = "Подтвержден";
+                        Table1.Rows[1].Cells[10].BackColor = System.Drawing.Color.Green;
+                        break;
+                    case 2:
+                        Table1.Rows[1].Cells[10].Text = "Отклонен";
+                        Table1.Rows[1].Cells[10].BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 3:
+                        Table1.Rows[1].Cells[10].Text = "Ожидает подтверждения";
+                        Table1.Rows[1].Cells[10].BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    default:
+                        break;
+                }
             }
             catch (Exception)
             {
@@ -81,7 +98,7 @@ namespace PlanViewer
                 from plan in db.Plans
                 where plan.ID == planindex
                 select plan;
-            query.ToArray()[0].Labor = "Aproved";
+            query.ToArray()[0].Status = 1;
             try
             {
                 db.SubmitChanges();
@@ -95,6 +112,21 @@ namespace PlanViewer
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            var db = new DBClassesDataContext();
+            var query =
+                from plan in db.Plans
+                where plan.ID == planindex
+                select plan;
+            query.ToArray()[0].Status = 2;
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.StackTrace);
+            }
+            viewPlan();
             string email;
             try
             {
