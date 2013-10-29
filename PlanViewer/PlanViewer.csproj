@@ -306,6 +306,9 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBClasses.cs">
+      <DependentUpon>DBClasses.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
