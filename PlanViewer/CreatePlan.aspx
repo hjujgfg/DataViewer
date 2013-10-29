@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Создание плана" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="СreatePlan.aspx.cs" Inherits="PlanViewer.createPlan" %>
+﻿<%@ Page Title="Создание плана" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreatePlan.aspx.cs" Inherits="PlanViewer.createPlan" %>
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     <section class="featured">
         <div class="content-wrapper">

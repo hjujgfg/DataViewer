@@ -2,22 +2,24 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
+        <h1>Команда TechUP <%: Title %></h1>
     </hgroup>
 
     <article>
         <p>        
-            Use this area to provide additional information.
-        </p>
+            Национальный Исследовательский Университет - Высшая Школа Экономики</p>
 
         <p>        
-            Use this area to provide additional information.
-        </p>
-
+            Стафеев Артём</p>
         <p>        
-            Use this area to provide additional information.
+            Сотов Александр
         </p>
+        <p>        
+            Захаров Егор</p>
+        <p>        
+            Лапидус Егор</p>
+        <p>        
+            &nbsp;</p>
     </article>
 
     <aside>

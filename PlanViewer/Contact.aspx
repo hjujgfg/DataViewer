@@ -39,12 +39,5 @@
     </section>
 
     <section class="contact">
-        <header>
-            <h3>Address:</h3>
-        </header>
-        <p>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399
-        </p>
     </section>
 </asp:Content>

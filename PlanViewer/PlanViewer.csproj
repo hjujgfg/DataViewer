@@ -188,7 +188,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="СreatePlan.aspx" />
+    <Content Include="CreatePlan.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -314,12 +314,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBClasses.dbml</DependentUpon>
     </Compile>
-    <Compile Include="СreatePlan.aspx.cs">
-      <DependentUpon>СreatePlan.aspx</DependentUpon>
+    <Compile Include="CreatePlan.aspx.cs">
+      <DependentUpon>CreatePlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="СreatePlan.aspx.designer.cs">
-      <DependentUpon>СreatePlan.aspx</DependentUpon>
+    <Compile Include="CreatePlan.aspx.designer.cs">
+      <DependentUpon>CreatePlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
