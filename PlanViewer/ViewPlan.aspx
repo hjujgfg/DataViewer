@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="PlansDataSource" DataTextField="res" DataValueField="res" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
     </asp:DropDownList>
-    <asp:SqlDataSource ID="PlansDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:TeamProjectDBConnectionString1 %>" OnSelecting="PlansDataSource_Selecting" SelectCommand="SELECT + 'Plan #' + CAST([Plan].Id AS nchar) + ' Contractor: ' + Contractor.Name + ' Customer: ' + Customer.Name AS res FROM [Plan] INNER JOIN Contractor ON [Plan].Contractor = Contractor.ID INNER JOIN Customer ON [Plan].Customer = Customer.ID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="PlansDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:TeamProjectDBConnectionString1 %>" OnSelecting="PlansDataSource_Selecting" SelectCommand="SELECT 'Plan #' + CAST([ID] AS varchar(5)) +' On object'+ [Object] as res FROM [Plan]"></asp:SqlDataSource>
     <asp:Table ID="Table1" runat="server" >
         <asp:TableHeaderRow BorderStyle="Dashed">
             <asp:TableHeaderCell BorderStyle="Double">ID </asp:TableHeaderCell>
