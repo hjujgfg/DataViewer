@@ -63,13 +63,13 @@ namespace PlanViewer
                 {
                     Table1.Rows[1].Cells[1].Text = cust[0].Name.ToString();
                     Table1.Rows[1].Cells[2].Text = contr[0].Name.ToString();
-                    Table1.Rows[1].Cells[5].Text = res[0].CostName.ToString();
+                    
                 }
                 catch (Exception)
                 { }
                 Table1.Rows[1].Cells[3].Text = res[0].Object.ToString();
                 Table1.Rows[1].Cells[4].Text = res[0].WorkType.ToString();
-                
+                Table1.Rows[1].Cells[5].Text = res[0].CostName.ToString();
                 Table1.Rows[1].Cells[6].Text = res[0].UnitName.ToString();
                 Table1.Rows[1].Cells[7].Text = res[0].Labor.ToString();
                 Table1.Rows[1].Cells[8].Text = res[0].Materials.ToString();
@@ -94,7 +94,8 @@ namespace PlanViewer
             }
             catch (Exception)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "Ошибка", "нет записи", true);
+                //ClientScript.RegisterStartupScript(this.GetType(), "Ошибка", "нет записи", true);
+                Alert.Show("Ошибка загрузки данных");
             }
         }
 
