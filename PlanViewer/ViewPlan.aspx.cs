@@ -23,15 +23,25 @@ namespace PlanViewer
         {
             viewPlan();
         }
+        Plan[] res;
+        Contractor[] contr;
+        Customer[] cust;
+        int planindex;
         private void viewPlan()
         {
-            int planindex;
+            
             try
             {
-                planindex = (int)Char.GetNumericValue(DropDownList1.SelectedValue[0]);
+                string[] selected = DropDownList1.SelectedValue.Split(' ');                
+                planindex = int.Parse(selected[1].Substring(1).Trim());
             }
             catch (IndexOutOfRangeException)
             {
+                planindex = 1;
+            }
+            catch (Exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "Ошибка", "Ошибка поиска", true);
                 planindex = 1;
             }
             //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert(' index = " + planindex + "');", true);
@@ -42,11 +52,11 @@ namespace PlanViewer
                 IQueryable<Contractor> contrs = db.Contractors;
                 IQueryable<Customer> custs = db.Customers;
                 plans = plans.Where(p => p.ID == planindex);
-                Plan[] res = plans.ToArray<Plan>();
+                res = plans.ToArray<Plan>();
                 contrs = contrs.Where(p => p.ID == res[0].Contractor);
-                Contractor[] contr = contrs.ToArray<Contractor>();
+                contr= contrs.ToArray<Contractor>();
                 custs = custs.Where(p => p.ID == res[0].Customer);
-                Customer[] cust = custs.ToArray<Customer>();
+                cust = custs.ToArray<Customer>();
                 Table1.Rows[1].Cells[0].Text = res[0].ID.ToString();
                 Table1.Rows[1].Cells[1].Text = cust[0].Name.ToString();
                 Table1.Rows[1].Cells[2].Text = contr[0].Name.ToString();
@@ -62,6 +72,41 @@ namespace PlanViewer
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "Ошибка", "нет записи", true);
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            var db = new DBClassesDataContext();
+            var query =
+                from plan in db.Plans
+                where plan.ID == planindex
+                select plan;
+            query.ToArray()[0].Labor = "Aproved";
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.StackTrace);
+            }
+            viewPlan();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            string email;
+            try
+            {
+                email = contr[0].Email;
+            }
+            catch (Exception)
+            {
+                email = "";
+            }
+            ClientScript.RegisterStartupScript(this.GetType(), "mailto",
+               "<script type = 'text/javascript'>parent.location='mailto:" + email +
+               "'</script>");
         }
     }
 }
