@@ -76,6 +76,24 @@ namespace PlanViewer {
         protected global::System.Web.UI.WebControls.TextBox mechanisms;
         
         /// <summary>
+        /// customer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox customer;
+        
+        /// <summary>
+        /// contractor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox contractor;
+        
+        /// <summary>
         /// ButtonSend control.
         /// </summary>
         /// <remarks>

@@ -33,5 +33,11 @@
     <h3>Механизмы (план)</h3>
     <asp:TextBox id="mechanisms" runat="server" />
     <br>
+    <h3>Заказчик</h3>
+    <asp:TextBox id="customer" runat="server" />
+    <br>
+    <h3>Подрядчик</h3>
+    <asp:TextBox id="contractor" runat="server" />
+    <br>
     <asp:Button ID="ButtonSend" runat="server" onclick="ButtonSend_Click" Text="Отправить на согласование" />
 </asp:Content>

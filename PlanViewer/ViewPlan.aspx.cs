@@ -34,6 +34,7 @@ namespace PlanViewer
             {
                 string[] selected = DropDownList1.SelectedValue.Split(' ');                
                 planindex = int.Parse(selected[1].Substring(1).Trim());
+                ClientScript.RegisterStartupScript(this.GetType(), "Ошибка", "  " + planindex, true);
             }
             catch (IndexOutOfRangeException)
             {
@@ -58,11 +59,17 @@ namespace PlanViewer
                 custs = custs.Where(p => p.ID == res[0].Customer);
                 cust = custs.ToArray<Customer>();
                 Table1.Rows[1].Cells[0].Text = res[0].ID.ToString();
-                Table1.Rows[1].Cells[1].Text = cust[0].Name.ToString();
-                Table1.Rows[1].Cells[2].Text = contr[0].Name.ToString();
+                try
+                {
+                    Table1.Rows[1].Cells[1].Text = cust[0].Name.ToString();
+                    Table1.Rows[1].Cells[2].Text = contr[0].Name.ToString();
+                    Table1.Rows[1].Cells[5].Text = res[0].CostName.ToString();
+                }
+                catch (Exception)
+                { }
                 Table1.Rows[1].Cells[3].Text = res[0].Object.ToString();
                 Table1.Rows[1].Cells[4].Text = res[0].WorkType.ToString();
-                Table1.Rows[1].Cells[5].Text = res[0].CostName.ToString();
+                
                 Table1.Rows[1].Cells[6].Text = res[0].UnitName.ToString();
                 Table1.Rows[1].Cells[7].Text = res[0].Labor.ToString();
                 Table1.Rows[1].Cells[8].Text = res[0].Materials.ToString();
@@ -96,7 +103,7 @@ namespace PlanViewer
             var db = new DBClassesDataContext();
             var query =
                 from plan in db.Plans
-                where plan.ID == planindex
+                where plan.ID == planindex                
                 select plan;
             query.ToArray()[0].Status = 1;
             try
